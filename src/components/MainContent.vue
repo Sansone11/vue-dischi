@@ -1,9 +1,12 @@
 <template>
   <div>
-    <b-card v-for="caracters, i in listMusic" :key="i" :title = "caracters.author" :img-src="carater.poster" img-alt="Image" img-top tag="author"
-      style="max-width: 20rem;" class="mb-2">
+    <b-card v-for="caracters, i in listMusic" :key="i" :title="caracters.author" :img-src="caracters.poster"
+      img-alt="Image" img-top tag="article" style="max-width: 20rem;" class="mb-2">
       <b-card-text>
+        {{caracters.author}}
       </b-card-text>
+
+      <b-button href="#" variant="primary">Go somewhere</b-button>
     </b-card>
   </div>
 </template>
