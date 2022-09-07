@@ -46,9 +46,7 @@ main{
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   padding-left: 80px;
-  // background-color: $bg--color ;
   padding-top: 40px;
-  margin: 0 auto;
 
   .card {
     padding: 1rem;
