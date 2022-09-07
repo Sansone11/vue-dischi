@@ -1,18 +1,21 @@
 <template>
-  <div>
-    <b-card v-for="caracters, i in listMusic" :key="i" :title="caracters.author" :img-src="caracters.poster"
-      img-alt="Image" img-top tag="article" style="max-width: 20rem;" class="mb-2">
-      <b-card-text>
-        {{caracters.author}}
-      </b-card-text>
-
-      <b-button href="#" variant="primary">Go somewhere</b-button>
-    </b-card>
-  </div>
+  <main>
+    <div class="card-wrapper ">
+      <div class="card " v-for="caracters, i in listMusic" :key="i" style="width: 13rem; ">
+        <img :src="caracters.poster" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" :title="caracters.title">{{caracters.title}}</h5>
+          <p class="card-text">{{caracters.author}}</p>
+          <p class="year-text" :class="caracters.year">{{caracters.year}}</p>
+        </div>
+      </div>
+    </div>
+  </main>
 </template>
 
 <script>
 import axios from "axios";
+
 export default {
   data() {
     return {
@@ -22,8 +25,8 @@ export default {
   created() {
     axios.get("https://flynn.boolean.careers/exercises/api/array/music")
       .then((res) => {
-        console.log(res.data)
-        this.listMusic = res.data;
+        console.log(res.data.response)
+        this.listMusic = res.data.response;
       })
   }
 }
@@ -31,5 +34,41 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+@import './style.scss';
 
+main{
+  width: 100%;
+  background-color: $bg--color ;
+  margin: 0 auto;
+}
+
+.card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding-left: 80px;
+  // background-color: $bg--color ;
+  padding-top: 40px;
+  margin: 0 auto;
+
+  .card {
+    padding: 1rem;
+    margin-bottom: 5rem;
+    background-color: $bg-card;
+  }
+
+  .card-text {
+    color: $Wc--color;
+    text-align: center;
+  }
+
+  .year-text {
+    color: $Wc--color;
+    text-align: center;
+
+  }
+
+  .card-title {
+    color: white;
+  }
+}
 </style>
