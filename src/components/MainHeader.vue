@@ -4,7 +4,7 @@
       <img src="./spotify-icon-marilyn-scott-0.png" alt="">
     </div>
     <div class="search text-center">
-      <select id="mySelect" @change="onChange(options)" v-model="options">
+      <select id="mySelect" @change="$emit('musicGenre',options)" v-model="options">
         <option selected>Scegli il Tuo Genere Preferito</option>
         <option value="pop">Pop</option>
         <option value="rock">Rock</option>
@@ -23,7 +23,7 @@ export default {
   },
   data() {
     return {
-      options:'',
+       options:'',
       
     }
   },

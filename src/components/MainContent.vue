@@ -17,6 +17,13 @@
 import axios from "axios";
 
 export default {
+  props:{
+    options:{
+      type: String,
+        default:'',
+    }
+       
+  },
   data() {
     return {
       listMusic: []

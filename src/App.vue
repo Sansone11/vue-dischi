@@ -1,7 +1,7 @@
 <template>
   <div>
-    <MainHeader />
-    <MainContent />
+    <MainHeader @musicGenre="onSearch" />
+    <MainContent :options="searchProp" />
   </div>
 </template>
 
@@ -11,10 +11,21 @@ import MainContent from './components/MainContent.vue';
 
 export default {
   name: 'App',
+
+  data(){
+    return{
+      searchProp:'',
+    }
+  },
   components: {
     MainHeader,
     MainContent,
 
+  },
+  methods: {
+    onSearch(data){
+      this.searchProp = data
+    }
   }
 }
 </script>
