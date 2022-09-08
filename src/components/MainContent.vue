@@ -26,29 +26,29 @@ export default {
   },
   data() {
     return {
-      listMusic: []
+      listMusic: [],
     }
   },
   created() {
     axios.get("https://flynn.boolean.careers/exercises/api/array/music")
       .then((res) => {
-        console.log(res.data.response)
+        // console.log(res.data.response);
         this.listMusic = res.data.response;
       })
   },
   computed : {
     filterGenre(){
       return this.listMusic.filter((el)=> {
-        if(el.listMusic.genre === options){
+        // console.log(el);
+        if(el.genre === this.options || this.options === ''){
           return true
-
-          
         }
         return false
       });
     }
 
   },
+ 
 
 }
 </script>
@@ -61,6 +61,7 @@ main{
   background-color: $bg--color ;
   margin: 0 auto;
   padding: 40px 200px;
+  min-height: 600px;
 }
 
 .card-wrapper {
