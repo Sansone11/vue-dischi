@@ -4,7 +4,7 @@
       <img src="./spotify-icon-marilyn-scott-0.png" alt="">
     </div>
     <div class="search text-center">
-      <select id="mySelect" @change="onChange($event)" v-model="genre">
+      <select id="mySelect" @change="onChange(options)" v-model="options">
         <option selected>Scegli il Tuo Genere Preferito</option>
         <option value="pop">Pop</option>
         <option value="rock">Rock</option>
@@ -28,8 +28,8 @@ export default {
     }
   },
   methods: {
-        onChange(event) {
-            console.log(event.target.value)
+        onChange(value) {
+           console.log(value)
         }
     }
  

@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="card-wrapper ">
-      <div class="card " v-for="caracters, i in listMusic" :key="i" style="width: 13rem; ">
+      <div class="card " v-for="caracters, i in filterGenre" :key="i" style="width: 13rem; ">
         <img :src="caracters.poster" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title" :title="caracters.title">{{caracters.title}}</h5>
@@ -28,7 +28,21 @@ export default {
         console.log(res.data.response)
         this.listMusic = res.data.response;
       })
-  }
+  },
+  computed : {
+    filterGenre(){
+      return this.listMusic.filter((el)=> {
+        if(el.listMusic.genre === options){
+          return true
+
+          
+        }
+        return false
+      });
+    }
+
+  },
+
 }
 </script>
 
