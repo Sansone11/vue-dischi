@@ -37,26 +37,29 @@ export default {
 @import './style.scss';
 
 main{
-  width: 100%;
   background-color: $bg--color ;
   margin: 0 auto;
+  padding: 40px 200px;
 }
 
 .card-wrapper {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  padding-left: 80px;
-  padding-top: 40px;
 
   .card {
     padding: 1rem;
-    margin-bottom: 5rem;
     background-color: $bg-card;
+    margin-bottom: 1rem;
   }
 
   .card-text {
     color: $Wc--color;
     text-align: center;
+
+  }
+
+  .card-body{
+    padding: 2rem;
   }
 
   .year-text {
